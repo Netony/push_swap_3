@@ -7,16 +7,25 @@ void	ft_stprint(t_stack *head)
 	int	n;
 
 	i = 0;
-	printf("TEST\n");
-	printf("head: %p\n", head);
-	printf("head->data: %d\n", head->data);
-	printf("head->prev: %p\n", head->prev);
-	printf("head->prev->data: %d\n", head->prev->data);
 	n = ft_stsize(head);
+	if (n == 0)
+		printf("head: (null)\n");
 	while (i < n)
 	{
 		printf("head[%d]: %d\n", i, head->data);
 		head = head->next;
+		i++;
+	}
+}
+
+void	ft_sptprint(char **s)
+{
+	int	i;
+	
+	i = 0;
+	while (s[i])
+	{
+		printf("s[%d]: %s\n", i, s[i]);
 		i++;
 	}
 }

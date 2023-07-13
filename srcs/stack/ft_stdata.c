@@ -1,6 +1,6 @@
 #include "stack.h"
-
 #include <stdio.h>
+
 t_stack	*ft_stlast(t_stack *head)
 {
 	return (head->prev);
@@ -21,11 +21,13 @@ int	ft_stsize(t_stack *head)
 	int		size;
 	t_stack	*last;
 
+	if (head == NULL)
+		return (0);
 	size = 1;
 	last = ft_stlast(head);
-	while (head != last)
+	while (last != head)
 	{
-		head = head->next;
+		last = last->prev;
 		size++;
 	}
 	return (size);

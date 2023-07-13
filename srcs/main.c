@@ -1,15 +1,14 @@
 #include "push_swap.h"
 
-void	stack_print(t_stack *head);
-
 int	main(int argc, char **argv)
 {
-	int		i;
-	t_stack *a;
+	t_stack	*a;
+	t_stack	*b;
+	int		size;
 
-	i = 1;
 	a = parse_argv(argc, argv);
-	ft_stprint(a);
+	size = ft_stsize(a);
+	b = NULL;
 	return (0);
 }
 

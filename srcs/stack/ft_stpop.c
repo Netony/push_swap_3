@@ -10,7 +10,7 @@ int	ft_stpop(t_stack **head)
 	{
 		(pop->next)->prev = pop->prev;
 		(pop->prev)->next = pop->next;
-		if (cur == cur->next)
+		if (pop == pop->next)
 			*head = NULL;
 		else
 			*head = (*head)->next;

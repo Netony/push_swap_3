@@ -12,12 +12,15 @@ int	ft_stpush(t_stack **head, int data)
 
 int	ft_stpush_stack(t_stack **head, t_stack *new)
 {
+	t_stack	*last;
+
+	last = ft_stlast(new);
 	if (*head)
 	{
-		ft_stlast(new)->next = *head;
 		new->prev = (*head)->prev;
+		last->next = *head;
 		new->prev->next = new;
-		new->next->prev = new;
+		last->next->prev = last;
 	}
 	*head = new;
 	return (0);

@@ -15,14 +15,18 @@ t_stack	*parse_argv(int argc, char **argv)
 	int		i;
 
 	i = 1;
+	stack = NULL;
 	while (i < argc)
 	{
-		if (ft_isin(' ', argv[i]))
-			parse = parse_nbrs(argv[i]);
+		if (ft_isin(' ', argv[argc - i]))
+			parse = parse_nbrs(argv[argc - i]);
 		else
-			parse = parse_nbr(argv[i]);
+			parse = parse_nbr(argv[argc - i]);
 		if (parse == NULL)
+		{
+			ft_stclear(&stack);
 			return (NULL);
+		}
 		ft_stpush_stack(&stack, parse);
 		i++;
 	}
@@ -33,7 +37,7 @@ t_stack	*parse_nbr(char *nptr)
 {
 	if (ft_nptr_check(nptr) == 0)
 	{
-		printf("push_swap: parse error: type error");
+		printf("push_swap: parse error: nubmer type error\n");
 		return (NULL);
 	}
 	return (ft_stnew(ft_atoi(nptr)));

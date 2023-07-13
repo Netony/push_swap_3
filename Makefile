@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/13 19:17:54 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/13 21:05:31 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME = push_swap
 SOURCES = parse.c ft_toklen.c \
 		  stack/ft_stnew.c \
 		  stack/ft_stpush.c \
-		  stack/ft_stdata.c
+		  stack/ft_stdata.c \
+		  stack/ft_stpop.c \
+		  stack/ft_stclear.c
+
 SOURCES_MANDA = main.c test.c
 SOURCES_BONUS = 
 			   
