@@ -1,12 +1,5 @@
 #include <fcntl.h>
 
-int	main(int argc, char **argv)
-{
-	t_stack	*stack;
-
-	stack = parse_argv(argc, argv);
-}
-
 t_stack	*parse_argv(int argc, char **argv)
 {
 	t_stack	*ret;
