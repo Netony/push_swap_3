@@ -1,8 +1,16 @@
 #include <fcntl.h>
+#include "lib.h"
+#include "stack.h"
+#include "toklen.h"
+#include "push_swap.h"
+
+t_stack	*parse_nbr(char *nptr);
+t_stack	*parse_nbrs(char *nbrs_ptr);
+int		ft_nptr_check(char *nptr);
 
 t_stack	*parse_argv(int argc, char **argv)
 {
-	t_stack	*ret;
+	t_stack	*stack;
 	t_stack	*parse;
 	int		i;
 
@@ -10,39 +18,62 @@ t_stack	*parse_argv(int argc, char **argv)
 	while (i < argc)
 	{
 		if (ft_isin(' ', argv[i]))
-			parse = parse_split(argv[i]);
+			parse = parse_nbrs(argv[i]);
 		else
-			parse = ft_stacknew(ft_atoi(argv[i]));
-		ft_push_stack(ret, parse);
+			parse = parse_nbr(argv[i]);
+		if (parse == NULL)
+			return (NULL);
+		ft_stpush_stack(&stack, parse);
 		i++;
 	}
-	return (ret);
-}
-
-t_stack	*parse_atoi(char *nptr)
-{
-	t_stack	*stack;
-	int		nbr;
-
-	nbr = ft_atoi(nptr);
-	stack = ft_stackinit(nbr);
 	return (stack);
 }
 
-t_stack	*parse_split(char *nbrs)
+t_stack	*parse_nbr(char *nptr)
+{
+	if (ft_nptr_check(nptr) == 0)
+	{
+		printf("push_swap: parse error: type error");
+		return (NULL);
+	}
+	return (ft_stnew(ft_atoi(nptr)));
+}
+
+t_stack	*parse_nbrs(char *nbrs_ptr)
 {
 	t_stack	*stack;
-	char	**split;
+	t_stack	*new;
+	char	**nptr_list;
 	int		i;
 
-	split = ft_split(nbrs, ' ');
-	if (split == NULL)
+	nptr_list = ft_split(nbrs_ptr, ' ');
+	if (nptr_list == NULL)
 		return (NULL);
 	i = 0;
-	while (split[i])
+	stack = NULL;
+	while (nptr_list[i])
 	{
-		stack_add(ft_atoi(split[i]));
-		i++;
+		new = parse_nbr(nptr_list[i++]);
+		if (new == NULL)
+			return (NULL);
+		ft_stpush_stack(&stack, new);
 	}
 	return (stack);
+}
+
+int	ft_nptr_check(char *nptr)
+{
+	if (ft_isspace(*nptr))
+		nptr += ft_duplen(nptr, " ");
+	if (*nptr == '+' || *nptr == '-')
+		nptr++;
+	if (ft_isin(*nptr, "0123456789"))
+	{
+		nptr += ft_duplen(nptr, "0123456789");
+		if (*nptr)
+			return (0);
+	}
+	else
+		return (0);
+	return (1);
 }

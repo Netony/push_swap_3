@@ -6,17 +6,20 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/13 15:40:57 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/13 19:17:54 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SOURCES = 
-SOURCES_MANDA = main.c 
+SOURCES = parse.c ft_toklen.c \
+		  stack/ft_stnew.c \
+		  stack/ft_stpush.c \
+		  stack/ft_stdata.c
+SOURCES_MANDA = main.c test.c
 SOURCES_BONUS = 
 			   
-INCLUDES = stack.h push_swap.h
+INCLUDES = stack.h push_swap.h lib.h
 
 LIBFT = libft.a
 LIB = ft 

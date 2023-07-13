@@ -1,5 +1,6 @@
 #include "stack.h"
 
+#include <stdio.h>
 t_stack	*ft_stlast(t_stack *head)
 {
 	return (head->prev);

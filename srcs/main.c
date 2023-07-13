@@ -1,6 +1,21 @@
 #include "push_swap.h"
 
+void	stack_print(t_stack *head);
+
 int	main(int argc, char **argv)
+{
+	int		i;
+	t_stack *a;
+
+	i = 1;
+	a = parse_argv(argc, argv);
+	ft_stprint(a);
+	return (0);
+}
+
+
+/*
+int	test(void)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -10,5 +25,4 @@ int	main(int argc, char **argv)
 		return (NULL);
 	b = NULL;
 }
-
-
+*/
