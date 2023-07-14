@@ -5,6 +5,14 @@
 # include "stack.h"
 # include <stdio.h>
 
+typedef struct	s_vars
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		a_size;
+	int		b_size;
+}	t_vars;
+
 int	ps_push(t_stack **from, t_stack **to);
 int	ps_rotate(t_stack **head);
 int	ps_rrotate(t_stack **head);

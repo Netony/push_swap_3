@@ -18,7 +18,7 @@ int	get_mid(t_stack *stack)
 	return ((max + min) / 2);
 }
 
-void	move_one(t_stack *a, t_stack *b)
+void	move_one(t_vars	*vars)
 {
 	int	n;
 	int	i;
@@ -34,33 +34,39 @@ void	move_one(t_stack *a, t_stack *b)
 	}
 }
 
-void	greedy(t_stack *a, t_stack *b)
+void	greedy(t_vars *vars)
 {
 	int	min;
-	int	index;
-	int	size;
+	int	count;
 	int	i;
 
-	size = ft_stsize(b);
+	n = ft_stsize(b);
 	i = 0;
-	while (i < size)
+	while (i < n)
 	{
-		
+		count = 0;
+		count = greddy_rotate_b(i, n);
+		count = greddy_rotate_a
 		b = b->next;
 		i++;
 	}
 	push
 }
 
-int	greedy_count(t_stack *a, t_stack *b)
+int	greedy_rotate_a(int data, t_stack *a, )
 {
-	int	b_rotate;
-	int	a_rotate;
+	int	i;
+	int	n;
 
-	b_rotate = 
+	n = ft_stsize(a);
+	i = 0;
+	while (i < )
+	{
+		
+	}
 }
 
-int	greedy_rotate_b(int index, int size)
+int	rr_or_rrr(int index, int size)
 {
 	if (index > size / 2)
 		return (size - index);
