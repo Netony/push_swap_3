@@ -4,11 +4,10 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		size;
 
 	a = parse_argv(argc, argv);
-	size = ft_stsize(a);
 	b = NULL;
+	ft_stprint(a);
 	return (0);
 }
 

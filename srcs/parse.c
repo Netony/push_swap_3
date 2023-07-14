@@ -7,6 +7,7 @@
 t_stack	*parse_nbr(char *nptr);
 t_stack	*parse_nbrs(char *nbrs_ptr);
 int		ft_nptr_check(char *nptr);
+int		ft_sptsize(char **spt);
 
 t_stack	*parse_argv(int argc, char **argv)
 {
@@ -37,7 +38,7 @@ t_stack	*parse_nbr(char *nptr)
 {
 	if (ft_nptr_check(nptr) == 0)
 	{
-		printf("push_swap: parse error: nubmer type error\n");
+		printf("push_swap: invalid input\n");
 		return (NULL);
 	}
 	return (ft_stnew(ft_atoi(nptr)));
@@ -49,15 +50,22 @@ t_stack	*parse_nbrs(char *nbrs_ptr)
 	t_stack	*new;
 	char	**nptr_list;
 	int		i;
+	int		n;
 
+	stack = NULL;
 	nptr_list = ft_split(nbrs_ptr, ' ');
 	if (nptr_list == NULL)
 		return (NULL);
-	i = 0;
-	stack = NULL;
-	while (nptr_list[i])
+	n = ft_sptsize(nptr_list);
+	if (n == 0)
 	{
-		new = parse_nbr(nptr_list[i++]);
+		printf("push_swap: invalid input\n");
+		return (NULL);
+	}
+	i = 0;
+	while (i < n)
+	{
+		new = parse_nbr(nptr_list[(n - 1) - i++]);
 		if (new == NULL)
 			return (NULL);
 		ft_stpush_stack(&stack, new);
