@@ -1,9 +1,12 @@
 #include "lib.h"
+#include "toklen.h"
 #include "stack.h"
 
 int		ft_sptsize(char **spt);
 void	ft_sptdel(char **spt);
 int		*stack_to_ints(t_stack *stack);
+
+int	ints_check_dup(int *ints, int n);
 
 int	ft_nptr_check(char *nptr)
 {
@@ -32,20 +35,19 @@ int	ft_stack_check(t_stack *stack)
 	size = ft_stsize(stack);
 	if (ints == NULL)
 		return (-1);
-	ret = ft_ints_check(ints, size);
+	ret = ints_check_dup(ints, size);
 	free(ints);
 	return (ret);
 }
 
-int	ft_ints_check(int *ints, int n)
+int	ints_check_dup(int *ints, int n)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	ints = stack_to_ints(stack);
 	if (ints == NULL)
-		return (-1);
+		return (0);
 	while (i < n - 1)
 	{
 		j = i + 1;
@@ -54,11 +56,11 @@ int	ft_ints_check(int *ints, int n)
 			if (ints[i] == ints[j])
 			{
 				ft_putendl_fd("push_swap: invalid input: duplicated", 2);
-				return (-1);
+				return (0);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }

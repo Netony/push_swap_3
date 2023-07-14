@@ -2,28 +2,18 @@
 
 int	vars_init(t_vars *vars, int argc, char **argv);
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	t_vars	vars;
-
 	if (vars_init(&vars, argc, argv) < 0)
 		return (-1);
-	//greedy(&vars);
+	greedy_main(&vars);
 	ft_stprint(vars.a);
 	return (0);
 }
 
-
 /*
-int	test(void)
+int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = parse_argv(argc, argv);
-	if (a == NULL)
-		return (NULL);
-	b = NULL;
 }
 */
 

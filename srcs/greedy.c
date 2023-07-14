@@ -1,6 +1,22 @@
 #include "push_swap.h"
 
-int	get_mid(t_stack *stack)
+int	greedy_pivot(t_vars *vars);
+
+int	greedy_main(t_vars *vars)
+{
+	int	pivot;
+
+	pivot = greedy_pivot(vars);
+	greedy_move_to_b(vars);
+	return (0);
+}
+
+int	greedy(t_vars *vars)
+{
+	return (0);
+}
+
+int	greedy_pivot(t_vars *vars)
 {
 	int	min;
 	int	max;
@@ -18,7 +34,7 @@ int	get_mid(t_stack *stack)
 	return ((max + min) / 2);
 }
 
-void	move_one(t_vars	*vars)
+void	greedy_move_to_b(t_vars	*vars)
 {
 	int	n;
 	int	i;
@@ -29,12 +45,12 @@ void	move_one(t_vars	*vars)
 	i = 0;
 	while (i < n)
 	{
-		ft_stpush(&a, &b);
+		ps_push(&a, &b);
 		i++;
 	}
 }
 
-void	greedy(t_vars *vars)
+void	greedy_move_to_a(t_vars *vars)
 {
 	int	min;
 	int	count;
@@ -45,32 +61,16 @@ void	greedy(t_vars *vars)
 	while (i < n)
 	{
 		count = 0;
-		count = greddy_rotate_b(i, n);
-		count = greddy_rotate_a
+		count = mta_rotate_b(i, n);
+		count = mta_rotate_a(i, n);
 		b = b->next;
 		i++;
 	}
-	push
 }
 
-int	greedy_rotate_a(int data, t_stack *a, )
-{
-	int	i;
-	int	n;
-
-	n = ft_stsize(a);
-	i = 0;
-	while (i < )
-	{
-		
-	}
-}
-
-int	rr_or_rrr(int index, int size)
+int	get_rotate(int index, int size)
 {
 	if (index > size / 2)
 		return (size - index);
 	return (index);
 }
-
-int	
