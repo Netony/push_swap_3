@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-void	stack_print(t_stack *head);
-
 int	main(int argc, char **argv)
 {
 	int		i;
