@@ -1,3 +1,5 @@
+int	ft_abs(int a);
+
 int	ft_abs(int a)
 {
 	if (a < 0)
@@ -5,9 +7,8 @@ int	ft_abs(int a)
 	return (a);
 }
 
-int	get_rotate(int r, int n)
+int	ps_abs_sum(int a, int b)
 {
-	if (r > (n - 1) / 2)
-		r -= n;
-	return (r);
+	return (ft_abs(a) + ft_abs(b));
 }
+

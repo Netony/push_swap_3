@@ -1,4 +1,11 @@
 #include "stack.h"
+#include <stdlib.h>
+
+void	ft_stclear(t_stack **head)
+{
+	while (*head)
+		ft_stpop(head);
+}
 
 int	ft_stpop(t_stack **head)
 {

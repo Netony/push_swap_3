@@ -1,29 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 19:43:04 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/15 14:05:12 by dajeon           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "stack.h"
+#include "push_swap.h"
 
 int	push_swap(t_vars *vars)
 {
-	int	pivot;
+	t_gred	*gred;
+	t_list	*cmds;
+	t_list	*node;
 
-	pivot = greedy_pivot(vars);
-	ps_pa_all(vars);
+	cmds = NULL;
 	while (vars->b)
-		greedy(vars);
+	{
+		gred = greedy(vars);
+		gred_operation(vars, gred);
+		node = gred_to_cmd(gred);
+		free(gred);
+		if (node == NULL)
+		{
+			ft_lstclear(cmds);
+			return (-1);
+		}
+		ft_lstadd_back(cmds, node);
+	}
 	return (0);
 }
 
-int	ps_pivot(t_vars *vars)
+int	ft_get_pivot(t_stack *stack)
 {
 	int	min;
 	int	max;
@@ -39,45 +40,4 @@ int	ps_pivot(t_vars *vars)
 		stack = stack->next;
 	}
 	return ((max + min) / 2);
-}
-
-void	greedy_move_to_b(t_vars	*vars)
-{
-	int	n;
-	int	i;
-
-	n = ft_stsize(a) - 3;
-	if (n < 0)
-		return ;
-	i = 0;
-	while (i < n)
-	{
-		ps_push(&a, &b);
-		i++;
-	}
-}
-
-void	greedy_move_to_a(t_vars *vars)
-{
-	int	min;
-	int	count;
-	int	i;
-
-	n = ft_stsize(b);
-	i = 0;
-	while (i < n)
-	{
-		count = 0;
-		count = mta_rotate_b(i, n);
-		count = mta_rotate_a(i, n);
-		b = b->next;
-		i++;
-	}
-}
-
-int	get_rotate(int index, int size)
-{
-	if (index > size / 2)
-		return (size - index);
-	return (index);
 }

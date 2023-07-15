@@ -6,6 +6,24 @@ t_stack	*ft_stlast(t_stack *head)
 	return (head->prev);
 }
 
+int	ft_stsize(t_stack *head)
+{
+	int		size;
+	t_stack	*last;
+
+	if (head == NULL)
+		return (0);
+	size = 1;
+	last = ft_stlast(head);
+	while (last != head)
+	{
+		last = last->prev;
+		size++;
+	}
+	return (size);
+}
+
+/*
 t_stack	*ft_stdata(t_stack *head, int n)
 {
 	int	i;
@@ -30,22 +48,6 @@ int	ft_stidx(t_stack *stack, int value)
 		i++;
 		stack = stack->next;
 	}
-	return (NULL);
+	return (-1);
 }
-
-int	ft_stsize(t_stack *head)
-{
-	int		size;
-	t_stack	*last;
-
-	if (head == NULL)
-		return (0);
-	size = 1;
-	last = ft_stlast(head);
-	while (last != head)
-	{
-		last = last->prev;
-		size++;
-	}
-	return (size);
-}
+*/

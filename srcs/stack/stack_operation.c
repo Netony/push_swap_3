@@ -1,25 +1,27 @@
 #include "stack.h"
 
-int	ps_push(t_stack **from, t_stack **to)
+int	push(t_stack **from, t_stack **to)
 {
-	return (ft_stpush_one(to, from));
+	if (*from == NULL)
+		return (-1);
+	return (ft_stpush_data(to, ft_stpop(from)));
 }
 
-int	ps_rotate(t_stack **head)
+int	rotate(t_stack **head)
 {
 	if (*head)
 		*head = (*head)->next;
 	return (0);
 }
 
-int	ps_rrotate(t_stack **head)
+int	rrotate(t_stack **head)
 {
 	if (*head)
 		*head = (*head)->prev;
 	return (0);
 }
 
-int	ps_swap(t_stack **head)
+int	swap(t_stack **head)
 {
 	t_stack	*c;
 
@@ -29,7 +31,7 @@ int	ps_swap(t_stack **head)
 		push(head, &c);
 		rotate(head);
 		push(&c, head);
-		rotate(head);
+		rrotate(head);
 	}
 	return (0);
 }

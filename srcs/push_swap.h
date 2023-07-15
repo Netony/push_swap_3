@@ -5,21 +5,34 @@
 # include "stack.h"
 # include <stdio.h>
 
-typedef struct	s_vars
+typedef struct s_vars
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		a_size;
-	int		b_size;
-	t_list	*command;
+	t_list	*cmds;
 }	t_vars;
 
-int	ps_push(t_stack **from, t_stack **to);
-int	ps_rotate(t_stack **head);
-int	ps_rrotate(t_stack **head);
-int	ps_swap(t_stack **head);
+typedef struct s_cmd
+{
+	char	*cmd;
+	int		count;
+}	t_cmd;
 
 t_stack	*parse_argv(int argc, char **argv);
-void	ft_stprint(t_stack *head);
+
+int		ft_abs(int a);
+int		ft_abs_sum(int a, int b);
+
+int		pa(t_vars *vars);
+int		pb(t_vars *vars);
+int		ra(t_vars *vars);
+int		rra(t_vars *vars);
+int		rb(t_vars *vars);
+int		rrb(t_vars *vars);
+int		sa(t_vars *vars);
+int		sb(t_vars *vars);
+int		ss(t_vars *vars);
+int		rr(t_vars *vars);
+int		rrr(t_vars *vars);
 
 #endif

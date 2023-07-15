@@ -6,27 +6,29 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/14 21:37:09 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/15 21:42:52 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SOURCES = parse.c ft_toklen.c \
-		  stack/ft_stnew.c \
-		  stack/ft_stpush.c \
-		  stack/ft_stdata.c \
-		  stack/ft_stpop.c \
-		  stack/ft_stclear.c \
-		  size.c \
-		  conv.c check.c \
+SOURCES = ft_toklen.c \
+		  stack/stack_new.c \
+		  stack/stack_push.c \
+		  stack/stack_data.c \
+		  stack/stack_pop.c \
+		  stack/stack_operation.c \
+		  push_swap.c \
+		  push_swap_check.c \
+		  push_swap_parse.c \
 		  push_swap_utils.c \
-		  push_swap.c
+		  push_swap_math.c \
+		  push_swap_oper.c 
 
-SOURCES_MANDA = main.c test.c
-SOURCES_BONUS = 
+SOURCES_MANDA = main.c push_swap_test.c
+SOURCES_BONUS = test.c
 			   
-INCLUDES = stack.h push_swap.h lib.h
+INCLUDES = stack.h push_swap.h lib.h toklen.h
 
 LIBFT = libft.a
 LIB = ft 
