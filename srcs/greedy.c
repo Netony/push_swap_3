@@ -1,76 +1,74 @@
 #include "push_swap.h"
 
-int	greedy_pivot(t_vars *vars);
-
-int	greedy_main(t_vars *vars)
-{
-	int	pivot;
-
-	pivot = greedy_pivot(vars);
-	greedy_move_to_b(vars);
-	return (0);
-}
+int	ft_abs(int a);
 
 int	greedy(t_vars *vars)
 {
+	t_stack	*cur;
+	int		ra;
+	int		rb;
+	int		min;
+	int		i;
+
+	cur = vars->b;
+	while (i < )
+	{
+		ra = greedy_ra_count(vars, cur);
+		rb = greedy_rb_count(i);
+		min = ft_abs(ra) + ft_abs(rb);
+		cur = cur->next;
+	}
 	return (0);
 }
 
-int	greedy_pivot(t_vars *vars)
+int	greedy_count(t_vars *vars, int index, int value)
 {
-	int	min;
-	int	max;
+	int	ra_count;
+	int	rb_count;
 
-	min = stack->data;
-	max = stack->data;
-	while (stack)
-	{
-		if (stack->data > max)
-			max = stack->data;
-		else if (stack->data < min)
-			min = stack->data;
-		stack = stack->next;
-	}
-	return ((max + min) / 2);
+	greedy_rb_count(vars, index);
+	greedy_ra_count(vars, 
 }
 
-void	greedy_move_to_b(t_vars	*vars)
+int	greedy_rb_count(t_vars *vars, int index)
 {
-	int	n;
-	int	i;
-
-	n = ft_stsize(a) - 3;
-	if (n < 0)
-		return ;
-	i = 0;
-	while (i < n)
-	{
-		ps_push(&a, &b);
-		i++;
-	}
-}
-
-void	greedy_move_to_a(t_vars *vars)
-{
-	int	min;
 	int	count;
-	int	i;
 
-	n = ft_stsize(b);
+	count = get_rotate(i, ft_stsize(vars->b))
+	return (count);
+}
+
+int	greedy_ra_count(t_vars *vars, int value)
+{
+	int	index;
+	int	count;
+
+	index = get_index_of_value(vars->a, value);
+	count = get_rotate(index, ft_stsize(vars->a));
+	return (count);
+}
+
+int	get_index_of_value(t_stack *stack, int value)
+{
+	t_stack	*stack;
+	int		cur;
+	int		min;
+	int		i;
+	int		n;
+
+	n = ft_stsize(stack);
+	min = value - stack->data;
 	i = 0;
 	while (i < n)
 	{
-		count = 0;
-		count = mta_rotate_b(i, n);
-		count = mta_rotate_a(i, n);
-		b = b->next;
+		cur = value - stack->data;
+		if (cur > 0)
+		{
+			if (min > cur)
+				min = cur;
+		}
+		stack = stack->next;
 		i++;
 	}
-}
-
-int	get_rotate(int index, int size)
-{
-	if (index > size / 2)
-		return (size - index);
-	return (index);
+	return (ft_stidx(stack, min));
 }

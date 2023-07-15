@@ -16,6 +16,23 @@ t_stack	*ft_stdata(t_stack *head, int n)
 	return (head);
 }
 
+int	ft_stidx(t_stack *stack, int value)
+{
+	int	n;
+	int	i;
+
+	n = ft_stsize(stack);
+	i = 0;
+	while (i < n)
+	{
+		if (stack->data == value)
+			return (i);
+		i++;
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
 int	ft_stsize(t_stack *head)
 {
 	int		size;

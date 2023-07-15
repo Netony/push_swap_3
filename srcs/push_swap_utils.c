@@ -1,4 +1,26 @@
 #include "lib.h"
+#include "stack.h"
+#include <stdlib.h>
+
+int	ft_sptsize(char **spt)
+{
+	int	i;
+
+	i = 0;
+	while (spt[i])
+		i++;
+	return (i);
+}
+
+void	ft_sptdel(char **spt)
+{
+	int	i;
+
+	i = 0;
+	while (spt[i])
+		free(spt[i++]);
+	free(spt);
+}
 
 int	command_put(t_list *lst)
 {
@@ -36,4 +58,23 @@ t_list	*command_index(t_list *lst, int index)
 		i++;
 	}
 	return (lst);
+}
+
+int	*stack_to_ints(t_stack *stack)
+{
+	int	i;
+	int	n;
+	int	*ints;
+
+	n = ft_stsize(stack);
+	ints = (int *)malloc(sizeof(int) * n);
+	if (ints == NULL)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		ints[i++] = stack->data;
+		stack = stack->next;
+	}
+	return (ints);
 }
