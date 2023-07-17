@@ -23,12 +23,15 @@ SOURCES = ft_toklen.c \
 		  push_swap_parse.c \
 		  push_swap_utils.c \
 		  push_swap_math.c \
-		  push_swap_oper.c 
+		  push_swap_oper.c
+
+DIRS = stack command greedy
+
 
 SOURCES_MANDA = main.c push_swap_test.c
 SOURCES_BONUS = test.c
 			   
-INCLUDES = stack.h push_swap.h lib.h toklen.h
+INCLUDES = stack.h push_swap.h lib.h greedy.h cmd.h toklen.h
 
 LIBFT = libft.a
 LIB = ft 
@@ -38,11 +41,13 @@ LIB = ft
 LIB_DIR = libft
 SRC_DIR = srcs
 OBJ_DIR = objs
-INC_DIR = srcs
+INC_DIR = incs
 
 SRCS := $(addprefix $(SRC_DIR)/, $(SOURCES))
 SRCS_MANDA := $(addprefix $(SRC_DIR)/, $(SOURCES_MANDA))
 SRCS_BONUS := $(addprefix $(SRC_DIR)/, $(SOURCES_BONUS))
+
+OBJ_DIRS = $(addprefix $(OBJ_DIR)/, $(DIRS))
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
 OBJS_MANDA = $(addprefix $(OBJ_DIR)/, $(SOURCES_MANDA:.c=.o))
@@ -103,12 +108,12 @@ $(NAME) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
 $(LIBFT): 
 	$(MAKE) -j3 -C $(LIB_DIR) all
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS) | $(OBJ_DIR) $(OBJ_DIR)/stack
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS) | $(OBJ_DIR) $(OBJ_DIRS)
 	$(CC) $(CFLAGS) $< -c -I $(INC_DIR) -o $@
 
 $(OBJ_DIR):
 	mkdir $@
 
-$(OBJ_DIR)/stack:
+$(OBJ_DIRS):
 	mkdir $@
 

@@ -1,5 +1,4 @@
-#include "push_swap.h"
-#include <stdlib.h>
+#include "cmd.h"
 
 t_cmd	*cmd_new(char *cmd, int count)
 {
@@ -29,7 +28,7 @@ t_cmd	*cmd_new_negative(char *cmd1, char *cmd2, int count)
 	return (cmd);
 }
 
-t_cmd	*cmd_del(t_cmd *cmd)
+void	cmd_del(t_cmd *cmd)
 {
 	free(cmd->cmd);
 	free(cmd);

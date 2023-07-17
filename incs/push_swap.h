@@ -3,6 +3,8 @@
 
 # include "lib.h"
 # include "stack.h"
+# include "greedy.h"
+# include "cmd.h"
 # include <stdio.h>
 
 typedef struct s_vars
@@ -12,16 +14,13 @@ typedef struct s_vars
 	t_list	*cmds;
 }	t_vars;
 
-typedef struct s_cmd
-{
-	char	*cmd;
-	int		count;
-}	t_cmd;
+t_gred	*push_swap_greedy(t_vars *vars);
 
 t_stack	*parse_argv(int argc, char **argv);
+t_cmd	*gred_to_cmd(t_gred *gred);
+char	*cmd_to_char(t_list *lst);
 
-int		ft_abs(int a);
-int		ft_abs_sum(int a, int b);
+int		gred_operation(t_vars *vars, t_gred *gred);
 
 int		pa(t_vars *vars);
 int		pb(t_vars *vars);

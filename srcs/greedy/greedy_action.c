@@ -1,6 +1,9 @@
 #include "push_swap.h"
 
-int	gred_operation(t_vars *vars, t_gred *gred)
+int	gred_oper_ra(t_vars *vars, int ra);
+int	gred_oper_rb(t_vars *vars, int ra);
+
+int	greedy_operation(t_vars *vars, t_gred *gred)
 {
 	gred_oper_rb(vars, gred->rb);
 	pa(vars);
