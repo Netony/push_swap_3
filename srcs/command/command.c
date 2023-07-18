@@ -3,7 +3,6 @@
 t_cmd	*cmd_new(char *cmd, int count)
 {
 	t_cmd	*new;
-	char	*dup;
 
 	new = (t_cmd *)malloc(sizeof(t_cmd));
 	if (new == NULL)
@@ -14,17 +13,18 @@ t_cmd	*cmd_new(char *cmd, int count)
 		free(new);
 		return (NULL);
 	}
-	cmd->count = count;
+	new->count = count;
 	return (new);
 }
 
 t_cmd	*cmd_new_negative(char *cmd1, char *cmd2, int count)
 {
 	t_cmd	*cmd;
+
 	if (count >= 0)
-		cmd = cmd_new(cmd1, gred->ra);
-	else if (count < 0)
-		cmd = cmd_new(cmd2, ft_abs(gred->ra));
+		cmd = cmd_new(cmd1, count);
+	else
+		cmd = cmd_new(cmd2, ft_abs(count));
 	return (cmd);
 }
 

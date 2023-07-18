@@ -22,6 +22,18 @@ void	ft_sptdel(char **spt)
 	free(spt);
 }
 
+int	ft_abs(int a)
+{
+	if (a < 0)
+		a = -a;
+	return (a);
+}
+
+int	ft_abs_sum(int a, int b)
+{
+	return (ft_abs(a) + ft_abs(b));
+}
+
 int	*stack_to_ints(t_stack *stack)
 {
 	int	i;
@@ -41,9 +53,16 @@ int	*stack_to_ints(t_stack *stack)
 	return (ints);
 }
 
-int	get_rotate_count(int rotate, int max_index)
+int	ft_max(int a, int b)
 {
-	if (rotate > (max_index + 1) / 2)
-		rotate -= max_index;
-	return (rotate);
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }

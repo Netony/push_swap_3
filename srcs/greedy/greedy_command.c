@@ -1,13 +1,13 @@
-#include "push_swap.h"
+/*#include "push_swap.h"
 
-t_list	*gred_to_pa(t_gred *gred);
-t_list	*gred_to_ra(t_gred *gred);
-t_list	*gred_to_rb(t_gred *gred);
+t_list	*data_to_pa(t_data *data);
+t_list	*data_to_ra(t_data *data);
+t_list	*data_to_rb(t_data *data);
 
-t_list	*gred_to_cmd(t_gred *gred)
+t_list	*data_to_cmd(t_data *data)
 {
-	static t_list	*(*f_list)(t_gred *)[3] \
-		= {gred_to_rb, gred_to_pa, gred_to_ra};
+	static t_list	*(*f_list)(t_data *)[3] \
+		= {data_to_rb, data_to_pa, data_to_ra};
 	t_list	*cmds;
 	t_list	*new;
 	int		i;
@@ -16,7 +16,7 @@ t_list	*gred_to_cmd(t_gred *gred)
 	i = 0;
 	while (i < 3)
 	{
-		new = f_list[i](gred);
+		new = f_list[i](data);
 		if (new == NULL)
 			ft_lstclear(&cmds);
 		ft_lstadd_back(cmds, new);
@@ -25,12 +25,12 @@ t_list	*gred_to_cmd(t_gred *gred)
 	return (cmds);
 }
 
-t_list	*gred_to_pa(t_gred *gred)
+t_list	*data_to_pa(t_data *data)
 {
 	t_list	*node;
 	t_cmd	*cmd;
 
-	(void)gred;
+	(void)data;
 	cmd = cmd_new("pa", 1);
 	if (cmd == NULL)
 		return (NULL);
@@ -40,12 +40,12 @@ t_list	*gred_to_pa(t_gred *gred)
 	return (NULL);
 }
 
-t_list	*gred_to_ra(t_gred *gred)
+t_list	*data_to_ra(t_data *data)
 {
 	t_list	*node;
 	t_cmd	*cmd;
 
-	cmd = cmd_new_negative("ra", "rra", gred->ra);
+	cmd = cmd_new_negative("ra", "rra", data->ra);
 	if (cmd == NULL)
 		return (NULL);
 	node = ft_lstnew(cmd);
@@ -54,12 +54,12 @@ t_list	*gred_to_ra(t_gred *gred)
 	return (node);
 }
 
-t_list	*gred_to_rb(t_gred *gred)
+t_list	*data_to_rb(t_data *data)
 {
 	t_list	*node;
 	t_cmd	*cmd;
 
-	cmd = cmd_new_negative("rb", "rrb", gred->ra);
+	cmd = cmd_new_negative("rb", "rrb", data->ra);
 	if (cmd == NULL)
 		return (NULL);
 	node = ft_lstnew(cmd);
@@ -67,4 +67,5 @@ t_list	*gred_to_rb(t_gred *gred)
 		cmd_del(cmd);
 	return (node);
 }
+
 

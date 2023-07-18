@@ -1,32 +1,30 @@
-#include "lib.h"
 #include "cmd.h"
 
-void	cmd_to_char_cat(char *dst, char *src, int n);
-int		cmd_to_char_size(t_list	*lst):
+void	cltc_cat(char *dst, char *src, int n);
+int		cltc_size(t_list *lst);
 
-char	*cmd_to_char(t_list *lst)
+char	*cmd_lst_to_char(t_list *cmd_lst)
 {
 	size_t	size;
 	t_cmd	*cmd;
 	char	*ret;
-	int		i;
 
-	size = cmd_to_char_size(lst);
+	size = cltc_size(cmd_lst);
 	if (size == 1)
 		return (NULL);
 	ret = (char *)malloc(sizeof(char) * (size + 1));
 	if (ret == NULL)
 		return (NULL);
-	while (lst)
+	while (cmd_lst)
 	{
-		cmd = lst->content;
-		cmd_to_char_cat(ret, cmd->cmd, cmd->count);
-		lst = lst->next;
+		cmd = cmd_lst->content;
+		cltc_cat(ret, cmd->cmd, cmd->count);
+		cmd_lst = cmd_lst->next;
 	}
 	return (ret);
 }
 
-void	cmd_to_char_cat(char *dst, char *src, int n)
+void	cltc_cat(char *dst, char *src, int n)
 {
 	int	i;
 
@@ -34,11 +32,12 @@ void	cmd_to_char_cat(char *dst, char *src, int n)
 	while (i < n)
 	{
 		ft_strlcat(dst, src, ft_strlen(src));
+		ft_strlcat(dst, " ", 1);
 		i++;
 	}
 }
 
-int	cmd_to_char_size(t_list	*lst)
+int	cltc_size(t_list *lst)
 {
 	size_t	size;
 	t_cmd	*cmd;
