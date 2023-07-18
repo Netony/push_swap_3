@@ -2,19 +2,13 @@
 #include <stdio.h>
 #include "stack.h"
 
-int	get_index_of_value(t_stack *stack, int value);
-int	test(int a, int b);
-int	greedy_get_data_rotate(int rotate, int size);
-
-int	ft_min(int a, int b);
-
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("%d\n", test(3, 5));
+	t_stack	*stack;
+
+	stack = parse_argv(argc, argv);
+
+	printf("%d\n", ft_issorted(stack));
 	return (0);
 }
 
-int	test(int a, int b)
-{
-	return (greedy_get_data_rotate(a, b));
-}

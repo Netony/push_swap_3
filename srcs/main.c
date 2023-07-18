@@ -9,19 +9,11 @@ int	main(int argc, char **argv)
 
 	if (vars_init(&vars, argc, argv) < 0)
 		return (-1);
-	push_swap_test(&vars);
 	ret = push_swap(&vars);
-	push_swap_test(&vars);
 	free(ret);
+	ft_putendl_fd(ret, 1);
 	return (0);
 }
-
-/*
-int	main(int argc, char **argv)
-int	main(void)
-{
-}
-*/
 
 int	vars_init(t_vars *vars, int argc, char **argv)
 {
@@ -31,3 +23,24 @@ int	vars_init(t_vars *vars, int argc, char **argv)
 	vars->b = NULL;
 	return (0);
 }
+
+/*
+int	ft_get_pivot(t_stack *stack)
+{
+	int	min;
+	int	max;
+
+	min = stack->data;
+	max = stack->data;
+	while (stack)
+	{
+		if (stack->data > max)
+			max = stack->data;
+		else if (stack->data < min)
+			min = stack->data;
+		stack = stack->next;
+	}
+	return ((max + min) / 2);
+}
+*/
+

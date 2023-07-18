@@ -1,10 +1,11 @@
+#include "stack.h"
 #include "greedy.h"
 #include "push_swap.h"
 
-int	get_rotate_count(int rotate, int max_index);
 int	greedy_get_data_rotate(int rotate, int size);
-
-int	get_index_of_value(t_stack *stack, int value);
+int	greedy_get_index_by_value(t_stack *stack, int value);
+int	greedy_count_rb(t_vars *vars, int index);
+int	greedy_count_ra(t_vars *vars, int value);
 
 void	greedy_get_data(t_data *gred, t_vars *vars, int index, int value)
 {
@@ -24,31 +25,11 @@ int	greedy_count_rb(t_vars *vars, int index)
 
 int	greedy_count_ra(t_vars *vars, int value)
 {
-	int		i;
-	int		index;
-	int		size;
-	int		min;
-	t_stack	*b;
+	int	index;
 
-	b = vars->b;
-	size = ft_stsize(b);
-	i = 0;
-	while (i < size)
-	{
-		if (i == 0)
-		{
-			min = b->data - value;
-			index = i + 1;
-		}
-		else if (0 < b->data - value && b->data - value < min)
-		{
-			min = b->data - value;
-			index = i + 1;
-		}
-		b = b->next;
-		i++;
-	}
-	return (index);
+	index = ft_stidx_near(vars->a, value);
+	return (greedy_get_data_rotate(index, ft_stsize(vars->a)));
+
 }
 
 int	greedy_get_data_rotate(int rotate, int size)

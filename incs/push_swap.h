@@ -16,9 +16,6 @@ typedef struct s_vars
 t_stack	*parse_argv(int argc, char **argv);
 char	*cmd_to_char(t_list *lst);
 
-int		ft_stprint(t_stack *stack);
-int		push_swap_test(t_vars *vars);
-
 char	*push_swap(t_vars *vars);
 int		data_operation(t_vars *vars, t_data *data);
 
@@ -34,4 +31,10 @@ int		push_swap_ss(t_vars *vars);
 int		push_swap_rr(t_vars *vars);
 int		push_swap_rrr(t_vars *vars);
 
+
 #endif
+/*
+int		ft_stprint(t_stack *stack);
+int		push_swap_test(t_vars *vars);
+int		ft_cmd_lst_print(t_list *lst);
+*/

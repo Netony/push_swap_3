@@ -57,3 +57,16 @@ int	ft_stprint(t_stack *stack)
 	}
 	return (0);
 }
+
+int	ft_cmd_lst_print(t_list *lst)
+{
+	t_cmd	*cmd;
+
+	while (lst)
+	{
+		cmd = lst->content;
+		printf("cmd: %s, count: %d\n", cmd->cmd, cmd->count);
+		lst = lst->next;
+	}
+	return (0);
+}

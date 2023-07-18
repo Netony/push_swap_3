@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "push_swap.h"
 #include "data.h"
 
@@ -7,12 +6,8 @@ static int	data_rb(t_vars *vars, int rb);
 
 int	data_operation(t_vars *vars, t_data *data)
 {
-	printf("data->rb: %d\n", data->rb);
-	printf("data->ra: %d\n", data->ra);
-	printf("data->pa: %d\n", 1);
 	data_rb(vars, data->rb);
 	data_ra(vars, data->ra);
-	push_swap_pa(vars);
 	return (0);
 }
 

@@ -1,7 +1,7 @@
 #include "cmd.h"
 
-void	cltc_cat(char *dst, char *src, int n);
-int		cltc_size(t_list *lst);
+void	cltc_cat(char *dst, char *src, int n, int dst_size);
+size_t	cltc_size(t_list *lst);
 
 char	*cmd_lst_to_char(t_list *cmd_lst)
 {
@@ -18,26 +18,26 @@ char	*cmd_lst_to_char(t_list *cmd_lst)
 	while (cmd_lst)
 	{
 		cmd = cmd_lst->content;
-		cltc_cat(ret, cmd->cmd, cmd->count);
+		cltc_cat(ret, cmd->cmd, cmd->count, size + 1);
 		cmd_lst = cmd_lst->next;
 	}
 	return (ret);
 }
 
-void	cltc_cat(char *dst, char *src, int n)
+void	cltc_cat(char *dst, char *src, int n, int dst_size)
 {
 	int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		ft_strlcat(dst, src, ft_strlen(src));
-		ft_strlcat(dst, " ", 1);
+		ft_strlcat(dst, src, dst_size);
+		ft_strlcat(dst, " ", dst_size);
 		i++;
 	}
 }
 
-int	cltc_size(t_list *lst)
+size_t	cltc_size(t_list *lst)
 {
 	size_t	size;
 	t_cmd	*cmd;

@@ -1,5 +1,5 @@
 #include "stack.h"
-#include <stdio.h>
+#define INT_MAX 2147483647
 
 t_stack	*ft_stlast(t_stack *head)
 {
@@ -23,31 +23,57 @@ int	ft_stsize(t_stack *head)
 	return (size);
 }
 
-/*
-t_stack	*ft_stdata(t_stack *head, int n)
+int	ft_stmin(t_stack *stack)
 {
 	int	i;
+	int	size;
+	int	min;
+	int	index;
 
 	i = 0;
-	while (i++ < n)
-		head = head->next;
-	return (head);
-}
-
-int	ft_stidx(t_stack *stack, int value)
-{
-	int	n;
-	int	i;
-
-	n = ft_stsize(stack);
-	i = 0;
-	while (i < n)
+	index = 0;
+	size = ft_stsize(stack);
+	if (stack)
+		min = stack->data;
+	while (i < size)
 	{
-		if (stack->data == value)
-			return (i);
-		i++;
+		if (stack->data < min)
+		{
+			min = stack->data;
+			index = i;
+		}
 		stack = stack->next;
+		i++;
 	}
-	return (-1);
+	return (index);
 }
-*/
+
+int	ft_stidx_near(t_stack *stack, int value)
+{
+	int	index;
+	int	i;
+	int	size;
+	int	min;
+
+	size = ft_stsize(stack);
+	index = 0;
+	min = INT_MAX;
+	i = 0;
+	while (i < size)
+	{
+		if (stack->data > value)
+		{
+			if (stack->data < min)
+			{
+				min = stack->data;
+				index = i;
+			}
+		}
+		stack = stack->next;
+		i++;
+	}
+	if (min == INT_MAX)
+		index = ft_stmin(stack);
+	return (index);
+}
+

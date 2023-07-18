@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/18 15:42:46 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/18 23:31:58 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SOURCES = stack/stack_new.c \
 		  stack/stack_data.c \
 		  stack/stack_pop.c \
 		  stack/stack_operation.c \
+		  stack/stack_check.c \
 		  push_swap/push_swap.c \
 		  push_swap/push_swap_parse.c \
 		  push_swap/push_swap_parse_check.c \
@@ -27,7 +28,6 @@ SOURCES = stack/stack_new.c \
 		  command/cmd_lst_to_char.c \
 		  greedy/greedy.c \
 		  greedy/greedy_get_data.c \
-		  greedy/greedy_utils.c \
 		  greedy/data.c \
 		  greedy/data_operation.c \
 		  push_swap/push_swap_test.c \

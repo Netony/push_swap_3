@@ -24,10 +24,8 @@ void	ft_stclear(t_stack **head);
 
 int		ft_stsize(t_stack *head);
 t_stack	*ft_stlast(t_stack *head);
+int		ft_stmin(t_stack *stack);
+int		ft_stidx_near(t_stack *stack, int value);
+int		ft_issorted(t_stack *stack);
 
 #endif
-
-/*
-int		ft_stidx(t_stack *stack, int value);
-t_stack	*ft_stdata(t_stack *head, int n);
-*/
