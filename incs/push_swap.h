@@ -19,17 +19,17 @@ char	*cmd_to_char(t_list *lst);
 char	*push_swap(t_vars *vars);
 int		data_operation(t_vars *vars, t_data *data);
 
-int		push_swap_pa(t_vars *vars);
-int		push_swap_pb(t_vars *vars);
-int		push_swap_ra(t_vars *vars);
-int		push_swap_rra(t_vars *vars);
-int		push_swap_rb(t_vars *vars);
-int		push_swap_rrb(t_vars *vars);
-int		push_swap_sa(t_vars *vars);
-int		push_swap_sb(t_vars *vars);
-int		push_swap_ss(t_vars *vars);
-int		push_swap_rr(t_vars *vars);
-int		push_swap_rrr(t_vars *vars);
+int		pa(t_vars *vars);
+int		pb(t_vars *vars);
+int		ra(t_vars *vars);
+int		rra(t_vars *vars);
+int		rb(t_vars *vars);
+int		rrb(t_vars *vars);
+int		sa(t_vars *vars);
+int		sb(t_vars *vars);
+int		ss(t_vars *vars);
+int		rr(t_vars *vars);
+int		rrr(t_vars *vars);
 
 
 #endif

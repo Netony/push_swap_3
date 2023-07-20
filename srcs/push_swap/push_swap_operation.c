@@ -1,56 +1,56 @@
 #include "push_swap.h"
 
-int	push_swap_pa(t_vars *vars)
+int	pa(t_vars *vars)
 {
 	return (push(&(vars->b), &(vars->a)));
 }
 
-int	push_swap_pb(t_vars *vars)
+int	pb(t_vars *vars)
 {
 	return (push(&(vars->a), &(vars->b)));
 }
 
-int	push_swap_ra(t_vars *vars)
+int	ra(t_vars *vars)
 {
 	return (rotate(&(vars->a)));
 }
 
-int	push_swap_rra(t_vars *vars)
+int	rra(t_vars *vars)
 {
 	return (rrotate(&(vars->a)));
 }
 
-int	push_swap_rb(t_vars *vars)
+int	rb(t_vars *vars)
 {
 	return (rotate(&(vars->b)));
 }
 
-int	push_swap_rrb(t_vars *vars)
+int	rrb(t_vars *vars)
 {
 	return (rrotate(&(vars->b)));
 }
 
-int	push_swap_sa(t_vars *vars)
+int	sa(t_vars *vars)
 {
 	return (swap(&(vars->a)));
 }
 
-int	push_swap_sb(t_vars *vars)
+int	sb(t_vars *vars)
 {
 	return (swap(&(vars->b)));
 }
 
-int	push_swap_ss(t_vars *vars)
+int	ss(t_vars *vars)
 {
-	return (push_swap_sa(vars) || push_swap_sb(vars));
+	return (sa(vars) || sb(vars));
 }
 
-int	push_swap_rr(t_vars *vars)
+int	rr(t_vars *vars)
 {
-	return (push_swap_ra(vars) || push_swap_rb(vars));
+	return (ra(vars) || rb(vars));
 }
 
-int	push_swap_rrr(t_vars *vars)
+int	rrr(t_vars *vars)
 {
-	return (push_swap_rra(vars) || push_swap_rrb(vars));
+	return (rra(vars) || rrb(vars));
 }
