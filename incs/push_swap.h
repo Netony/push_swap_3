@@ -3,7 +3,7 @@
 
 # include "lib.h"
 # include "stack.h"
-# include "cmd.h"
+# include "data.h"
 # include <stdio.h>
 
 typedef struct s_vars

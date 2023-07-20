@@ -1,4 +1,5 @@
-#include "greedy.h"
+#include "data.h"
+#include "push_swap.h"
 
 void	greedy_renew(t_data *data, t_vars *vars, int index, int value);
 

@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/20 22:27:53 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/20 22:22:23 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ DIRS = greedy push_swap stack utils
 SOURCES_MANDA = main.c 
 SOURCES_BONUS = test.c
 			   
-INCLUDES = stack.h push_swap.h lib.h toklen.h
+INCLUDES = stack.h push_swap.h lib.h greedy.h cmd.h toklen.h
 
 LIBFT = libft.a
 LIB = ft 
@@ -125,3 +125,4 @@ $(OBJ_DIR):
 
 $(OBJ_DIRS):
 	mkdir $@
+
