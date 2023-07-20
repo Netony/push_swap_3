@@ -2,8 +2,6 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	ft_max(int a, int b);
-
 int	push_swap_test(t_vars *vars)
 {
 	t_stack	*a;
@@ -58,15 +56,15 @@ int	ft_stprint(t_stack *stack)
 	return (0);
 }
 
-int	ft_cmd_lst_print(t_list *lst)
+int	ft_dataprint(t_data *data)
 {
-	t_cmd	*cmd;
-
-	while (lst)
-	{
-		cmd = lst->content;
-		printf("cmd: %s, count: %d\n", cmd->cmd, cmd->count);
-		lst = lst->next;
-	}
+	printf("data--------------\n");
+	printf("ra: %d\n", data->ra);
+	printf("rb: %d\n", data->rb);
+	printf("rra: %d\n", data->rra);
+	printf("rrb: %d\n", data->rrb);
+	printf("rr: %d\n", data->rr);
+	printf("rr: %d\n", data->rrr);
+	printf("min: %d\n", data->min);
 	return (0);
 }

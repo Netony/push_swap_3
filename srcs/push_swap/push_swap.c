@@ -1,92 +1,94 @@
-#include "data.h"
-#include "greedy.h"
-#include "stack.h"
 #include "push_swap.h"
 
-t_list	*ps_move_all(t_vars *vars);
-t_list	*ps_greedy(t_vars *vars);
-t_list	*ps_last_rotate(t_vars *vars);
+static int	push_swap_operation(t_vars *vars, char *s);
 
-char	*push_swap(t_vars *vars)
+int		pa(t_vars *vars);
+int		pb(t_vars *vars);
+int		ra(t_vars *vars);
+int		rra(t_vars *vars);
+int		rb(t_vars *vars);
+int		rrb(t_vars *vars);
+int		sa(t_vars *vars);
+int		sb(t_vars *vars);
+int		ss(t_vars *vars);
+int		rr(t_vars *vars);
+int		rrr(t_vars *vars);
+
+int	push_swap(t_vars *vars, char *s)
 {
-	t_list	*(*functions[3])(t_vars *)
-		= {ps_move_all, ps_greedy, ps_last_rotate};
-	t_list	*cmd_lst;
-	t_list	*cmd_new;
-	char	*ret;
-	int		i;
+	t_list	*new;
+	char	*dup;
 
-	i = 0;
-	cmd_lst = NULL;
-	while (i < 3)
+	if (push_swap_operation(vars, s) < 0)
+		return (-1);
+	dup = ft_strdup(s);
+	if (dup == NULL)
+		return (-1);
+	new = ft_lstnew(dup);
+	if (new == NULL)
 	{
-		cmd_new = functions[i](vars);
-		if (cmd_new == NULL)
-		{
-			cmd_lstclear(&cmd_lst);
-			return (NULL);
-		}
-		ft_lstadd_back(&cmd_lst, cmd_new);
-		i++;
+		free(dup);
+		return (-1);
 	}
-	ret = cmd_lst_to_char(cmd_lst);
-	cmd_lstclear(&cmd_lst);
-	return (ret);
+	ft_lstadd_back(&(vars->cmd), new);
+	return (0);
 }
-t_list	*ps_move_all(t_vars *vars)
+
+int	push_swap_n_times(t_vars *vars, char *s, int n)
 {
+	int	ret;
 	int	i;
-	int	size;
 
 	i = 0;
-	size = ft_stsize(vars->a);
-	while (i < size)
+	while (i < n)
 	{
-		push_swap_pb(vars);
+		ret = push_swap(vars, s);
+		if (ret < 0)
+			return (-1);
 		i++;
 	}
-	return (cmd_lstnew("pb", i));
+	return (0);
 }
 
-t_list	*ps_greedy(t_vars *vars)
+int	push_swap_min_rotate(t_vars *vars, char *ra, char *rra, int index)
 {
-	t_data	*data;
-	t_list	*cmd_lst;
-	t_list	*cmd_new;
+	int	size;
+	int	ret;
 
-	cmd_lst = NULL;
-	while (vars->b)
-	{
-		data = greedy(vars);
-		data_operation(vars, data);
-		push_swap_pa(vars);
-		cmd_new = data_to_cmd_list(data);
-		free(data);
-		if (cmd_new == NULL)
-		{
-			cmd_lstclear(&cmd_lst);
-			return (NULL);
-		}
-		ft_lstadd_back(&cmd_lst, cmd_new);
-	}
-	return (cmd_lst);
-}
-
-t_list	*ps_last_rotate(t_vars *vars)
-{
-	t_data	*data;
-	t_list	*cmd_lst;
-	int		ra;
-	int		size;
-
-	ra = ft_stmin(vars->a);
 	size = ft_stsize(vars->a);
-	ra = greedy_get_data_rotate(ra, size);
-	data = data_new(ra, 0);
-	if (data == NULL)
-		return (NULL);
-	data_operation(vars, data);
-	cmd_lst = data_to_cmd_list(data);
-	free(data);
-	return (cmd_lst);
+	if (index < size - index)
+		ret = push_swap_n_times(vars, ra, index);
+	else
+		ret = push_swap_n_times(vars, rra, size - index);
+	if (ret < 0)
+		return (-1);
+	return (0);
+}
+
+static int	push_swap_operation(t_vars *vars, char *s)
+{
+	if (ft_strcmp(s, "pa") == 0)
+		return (pa(vars));
+	else if (ft_strcmp(s, "pb") == 0)
+		return (pb(vars));
+	else if (ft_strcmp(s, "ra") == 0)
+		return (ra(vars));
+	else if (ft_strcmp(s, "rra") == 0)
+		return (rra(vars));
+	else if (ft_strcmp(s, "rb") == 0)
+		return (rb(vars));
+	else if (ft_strcmp(s, "rrb") == 0)
+		return (rrb(vars));
+	else if (ft_strcmp(s, "sa") == 0)
+		return (sa(vars));
+	else if (ft_strcmp(s, "sb") == 0)
+		return (sb(vars));
+	else if (ft_strcmp(s, "ss") == 0)
+		return (ss(vars));
+	else if (ft_strcmp(s, "rr") == 0)
+		return (rr(vars));
+	else if (ft_strcmp(s, "rrr") == 0)
+		return (rrr(vars));
+	else
+		return (-1);
 }

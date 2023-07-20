@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/18 23:31:58 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/20 22:00:48 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,26 @@ SOURCES = stack/stack_new.c \
 		  stack/stack_pop.c \
 		  stack/stack_operation.c \
 		  stack/stack_check.c \
+		  push_swap/push_swap_main.c \
 		  push_swap/push_swap.c \
+		  push_swap/push_swap_greedy.c \
+		  push_swap/push_swap_sorted.c \
 		  push_swap/push_swap_parse.c \
 		  push_swap/push_swap_parse_check.c \
-		  push_swap/push_swap_utils.c \
 		  push_swap/push_swap_operation.c \
-		  command/command.c \
-		  command/command_list.c \
-		  command/cmd_lst_to_char.c \
 		  greedy/greedy.c \
-		  greedy/greedy_get_data.c \
-		  greedy/data.c \
-		  greedy/data_operation.c \
-		  push_swap/push_swap_test.c \
-		  utils/ft_toklen.c
+		  greedy/greedy_renew.c \
+		  greedy/greedy_renew_utils.c \
+		  utils/ft_toklen.c \
+		  utils/ft_strcmp.c \
+		  utils/math.c \
+		  utils/split.c \
+		  utils/etc.c
 
+DIRS = greedy push_swap stack command utils command_new
 
-DIRS = greedy push_swap stack command utils
-
-SOURCES_MANDA = main.c
-SOURCES_BONUS = test.c
+SOURCES_MANDA = main.c print.c
+SOURCES_BONUS = test.c print.c
 			   
 INCLUDES = stack.h push_swap.h lib.h greedy.h cmd.h toklen.h
 

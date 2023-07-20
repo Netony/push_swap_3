@@ -10,31 +10,23 @@ typedef struct s_vars
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_list	*cmds;
+	t_list	*cmd;
 }	t_vars;
 
 t_stack	*parse_argv(int argc, char **argv);
-char	*cmd_to_char(t_list *lst);
+t_data	*greedy(t_vars *vars);
 
-char	*push_swap(t_vars *vars);
-int		data_operation(t_vars *vars, t_data *data);
+int		push_swap_main(t_vars *vars);
 
-int		pa(t_vars *vars);
-int		pb(t_vars *vars);
-int		ra(t_vars *vars);
-int		rra(t_vars *vars);
-int		rb(t_vars *vars);
-int		rrb(t_vars *vars);
-int		sa(t_vars *vars);
-int		sb(t_vars *vars);
-int		ss(t_vars *vars);
-int		rr(t_vars *vars);
-int		rrr(t_vars *vars);
+int		push_swap_move_all(t_vars *vars, int n);
+int		push_swap_sort(t_vars *vars, char *a);
+int		push_swap_greedy(t_vars *vars);
+
+int		push_swap_circular(t_vars *vars, int index);
+
+int		push_swap_min_rotate(t_vars *vars, char *ra, char *rra, int index);
+int		push_swap(t_vars *vars, char *s);
+int		push_swap_n_times(t_vars *vars, char *s, int n);
 
 
 #endif
-/*
-int		ft_stprint(t_stack *stack);
-int		push_swap_test(t_vars *vars);
-int		ft_cmd_lst_print(t_list *lst);
-*/
