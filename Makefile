@@ -6,11 +6,12 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/20 22:27:53 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/21 22:18:39 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS = checker
 
 SOURCES = stack/stack_new.c \
 		  stack/stack_push.c \
@@ -18,13 +19,18 @@ SOURCES = stack/stack_new.c \
 		  stack/stack_pop.c \
 		  stack/stack_operation.c \
 		  stack/stack_check.c \
-		  push_swap/push_swap_main.c \
+		  stack/stack_utils.c \
+		  command/cmd.c \
+		  command/cmd_utils.c \
 		  push_swap/push_swap.c \
-		  push_swap/push_swap_greedy.c \
-		  push_swap/push_swap_sorted.c \
-		  push_swap/push_swap_parse.c \
-		  push_swap/push_swap_parse_check.c \
-		  push_swap/push_swap_operation.c \
+		  push_swap/push_swap_base.c \
+		  push_swap/push_swap_base_oper_1.c \
+		  push_swap/push_swap_base_oper_2.c \
+		  push_swap/push_swap_base_oper_3.c \
+		  push_swap/push_swap_big.c \
+		  push_swap/push_swap_small.c \
+		  parse/parse.c \
+		  parse/parse_check.c \
 		  greedy/greedy.c \
 		  greedy/greedy_renew.c \
 		  greedy/greedy_renew_utils.c \
@@ -32,15 +38,14 @@ SOURCES = stack/stack_new.c \
 		  utils/ft_strcmp.c \
 		  utils/math.c \
 		  utils/split.c \
-		  utils/etc.c \
-		  print.c
+		  utils/etc.c
 
-DIRS = greedy push_swap stack utils
+DIRS = greedy push_swap stack utils command parse
 
 SOURCES_MANDA = main.c 
-SOURCES_BONUS = test.c
+SOURCES_BONUS = main_bonus.c checker.c
 			   
-INCLUDES = stack.h push_swap.h lib.h toklen.h
+INCLUDES = stack.h push_swap.h data.h lib.h toklen.h
 
 LIBFT = libft.a
 LIB = ft 
@@ -92,7 +97,7 @@ all :
 
 bonus : 
 	$(RM) $(RMFLAGS) $(OBJS_MANDA)
-	$(MAKE) $(NAME) WITH_BONUS=1
+	$(MAKE) $(BONUS) WITH_BONUS=1
 
 clean :
 	$(RM) $(RMFLAGS) objs
@@ -112,8 +117,10 @@ re :
 # Dependency ***************************************************************** #
 
 $(NAME) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
-	$(CC) $(CFLAGS) $(OBJS_NEW) -o $(NAME) $(LIBFLAGS)
+	$(CC) $(CFLAGS) $(OBJS_NEW) -o $@ $(LIBFLAGS)
 
+$(BONUS) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
+	$(CC) $(CFLAGS) $(OBJS_NEW) -o $@ $(LIBFLAGS)
 $(LIBFT): 
 	$(MAKE) -j3 -C $(LIB_DIR) all
 

@@ -8,6 +8,26 @@ int		*stack_to_ints(t_stack *stack);
 
 int	ints_check_dup(int *ints, int n);
 
+int	ft_integer_check(int atoi, char *nptr)
+{
+	char	*ltoa;
+	int		ret;
+
+	if (ft_isspace(*nptr))
+		nptr += ft_duplen(nptr, " ");
+	if (*nptr == '+')
+		nptr++;
+	ltoa = ft_ltoa(atoi, "0123456789", 1);
+	if (ltoa == NULL)
+		return (0);
+	if (ft_strcmp(ltoa, nptr))
+		ret = 0;
+	else
+		ret = 1;
+	free(ltoa);
+	return (ret);
+}
+
 int	ft_nptr_check(char *nptr)
 {
 	if (ft_isspace(*nptr))
@@ -55,7 +75,7 @@ int	ints_check_dup(int *ints, int n)
 		{
 			if (ints[i] == ints[j])
 			{
-				ft_putendl_fd("push_swap: invalid input: duplicated", 2);
+				ft_putendl_fd("Error", 2);
 				return (0);
 			}
 			j++;

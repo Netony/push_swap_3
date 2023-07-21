@@ -15,10 +15,10 @@ void	greedy_renew(t_data *data, t_vars *vars, int index, int value)
 	int	min;
 
 	ra = ft_stidx_near(vars->a, value);
-	rra = ft_stsize(vars->a) - data->ra;
+	rra = ft_stsize(vars->a) - ra;
 	rb = index;
-	rrb = ft_stsize(vars->b) - data->rb;
-	min = ft_min_four_arg(ft_max(ra, rb), ft_max(rra, rrb), rra + rb, ra + rrb);
+	rrb = ft_stsize(vars->b) - rb;
+	min = ft_min_4(ft_max(ra, rb), ft_max(rra, rrb), rra + rb, ra + rrb);
 	if (min < data->min)
 	{
 		data_bzero(data);
@@ -28,7 +28,7 @@ void	greedy_renew(t_data *data, t_vars *vars, int index, int value)
 			greedy_renew_second(data, rra, rrb);
 		else if (min == rra + rb)
 			greedy_renew_third(data, rra, rb);
-		else if (min == ra + rrb)
+		else
 			greedy_renew_forth(data, ra, rrb);
 		data->min = min;
 	}

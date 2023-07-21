@@ -1,5 +1,4 @@
 #include "stack.h"
-#define INT_MAX 2147483647
 
 t_stack	*ft_stlast(t_stack *head)
 {

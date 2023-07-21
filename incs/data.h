@@ -14,7 +14,7 @@ typedef struct	s_data
 	int	rrr;
 }	t_data;
 
-int		ft_min_four_arg(int a, int b, int c, int d);
+int		ft_min_4(int a, int b, int c, int d);
 void	data_bzero(t_data *data);
 t_data	*data_new(void);
 

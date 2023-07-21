@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 int	vars_init(t_vars *vars, int argc, char **argv);
 int	vars_end(t_vars *vars);
@@ -6,16 +6,18 @@ int	vars_end(t_vars *vars);
 int	main(int argc, char **argv)
 {
 	t_vars	vars;
+	int		ret;
 
 	if (vars_init(&vars, argc, argv) < 0)
 		return (-1);
-	if (push_swap_main(&vars) < 0)
+	ret = checker(&vars);
+	if (ret == 1)
+		ft_putendl_fd("OK", 1);
+	else if (ret == 0)
+		ft_putendl_fd("KO", 1);
+	else if (ret == -1)
 	{
-		vars_end(&vars);
-		return (-1);
-	}
-	if (cmd_put(vars.cmd) < 0)
-	{
+		ft_putendl_fd("Error", 2);
 		vars_end(&vars);
 		return (-1);
 	}
@@ -36,6 +38,6 @@ int	vars_end(t_vars *vars)
 {
 	ft_lstclear(&(vars->cmd), free);
 	ft_stclear(&(vars->a));
-	ft_stclear(&(vars->b));
 	return (0);
 }
+

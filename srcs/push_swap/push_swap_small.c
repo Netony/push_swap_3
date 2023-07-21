@@ -1,30 +1,36 @@
 #include "lib.h"
 #include "push_swap.h"
-#include "../srcs/test.h"
 
-char	**data_vars(void);
-int		push_swap_data(t_vars *vars, t_data *data);
+static char	**data_vars(void);
 
-int	push_swap_greedy(t_vars *vars)
+int	push_swap_n_times(t_vars *vars, char *s, int n)
 {
-	int		ret;
-	t_data	*data;
+	int	ret;
+	int	i;
 
-	ret = push_swap_move_all(vars, 3);
+	i = 0;
+	while (i < n)
+	{
+		ret = push_swap(vars, s);
+		if (ret < 0)
+			return (-1);
+		i++;
+	}
+	return (0);
+}
+
+int	push_swap_min_rotate(t_vars *vars, char *ra, char *rra, int index)
+{
+	int	size;
+	int	ret;
+
+	size = ft_stsize(vars->a);
+	if (index < size - index)
+		ret = push_swap_n_times(vars, ra, index);
+	else
+		ret = push_swap_n_times(vars, rra, size - index);
 	if (ret < 0)
 		return (-1);
-	while (vars->b)
-	{
-		data = greedy(vars);
-		ret = push_swap_data(vars, data);
-		push_swap_test(vars);
-		if (ret < 0)
-			return (-1);
-		ret = push_swap(vars, "pa");
-		if (ret < 0)
-			return (-1);
-		free(data);
-	}
 	return (0);
 }
 
@@ -35,7 +41,6 @@ int	push_swap_data(t_vars *vars, t_data *data)
 	char	**cmd;
 
 	cmd = data_vars();
-	ft_dataprint(data);
 	i = 0;
 	while (cmd[i])
 	{
@@ -48,7 +53,7 @@ int	push_swap_data(t_vars *vars, t_data *data)
 	return (0);
 }
 
-char	**data_vars(void)
+static char	**data_vars(void)
 {
 	char	**cmd;
 
@@ -62,4 +67,3 @@ char	**data_vars(void)
 	cmd[6] = NULL;
 	return (cmd);
 }
-

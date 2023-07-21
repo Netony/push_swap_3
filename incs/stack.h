@@ -3,6 +3,9 @@
 
 # include <stdlib.h>
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 typedef struct	s_stack
 {
 	int				data;
@@ -27,5 +30,10 @@ t_stack	*ft_stlast(t_stack *head);
 int		ft_stmin(t_stack *stack);
 int		ft_stidx_near(t_stack *stack, int value);
 int		ft_issorted(t_stack *stack);
+int		ft_issorted_real(t_stack *stack);
+
+int		ft_stmin_index(t_stack *stack);
+int		ft_stmax_index(t_stack *stack);
+int		ft_stmid_index(t_stack *stack);
 
 #endif
