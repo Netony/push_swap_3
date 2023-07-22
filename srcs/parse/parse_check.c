@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_check.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 12:38:05 by dajeon            #+#    #+#             */
+/*   Updated: 2023/07/22 12:38:06 by dajeon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lib.h"
 #include "toklen.h"
 #include "stack.h"
@@ -6,7 +18,7 @@ int		ft_sptsize(char **spt);
 void	ft_sptdel(char **spt);
 int		*stack_to_ints(t_stack *stack);
 
-int	ints_check_dup(int *ints, int n);
+int		ints_check_dup(int *ints, int n);
 
 int	ft_integer_check(int atoi, char *nptr)
 {

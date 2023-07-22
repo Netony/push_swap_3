@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:24:38 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 12:27:26 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 12:56:53 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ int	push_swap_three(t_vars *vars, char *a)
 	sort = ft_issorted(stack);
 	if (sort == 1)
 	{
-		index = ft_stmin_index(stack);
+		index = ft_stidx_min(stack);
 		if (push_swap_rotate(vars, "ra", "rra", index) < 0)
 			return (-1);
 	}
 	else if (sort == 2)
 	{
-		index = ft_stmid_index(stack);
+		index = ft_stidx_mid(stack);
 		if (push_swap_rotate(vars, "ra", "rra", index) < 0)
 			return (-1);
 		if (push_swap(vars, "sa") < 0)
@@ -87,7 +87,7 @@ int	push_swap_sort(t_vars *vars, char *a)
 	sort = ft_issorted(stack);
 	if (sort == 1)
 	{
-		index = ft_stmin_index(stack);
+		index = ft_stidx_min(stack);
 		if (push_swap_rotate(vars, "ra", "rra", index) < 0)
 			return (-1);
 	}

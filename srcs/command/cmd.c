@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 11:41:23 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 11:43:46 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 12:37:16 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	cmd_pa_pb(t_list **cmd)
 		else if (ft_iscmd(cur, "pb"))
 			pb++;
 		else
-			break;
+			break ;
 		cur = cur->next;
 	}
 	*cmd = ft_lstnth(*cmd, pa + pb);

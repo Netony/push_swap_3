@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 11:55:19 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 11:55:19 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 13:02:56 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	greedy_renew(t_data *data, t_vars *vars, int index, int value)
 	int	rrb;
 	int	min;
 
-	ra = ft_stidx_near(vars->a, value);
+	ra = ft_stidx_larger(vars->a, value);
 	rra = ft_stsize(vars->a) - ra;
 	rb = index;
 	rrb = ft_stsize(vars->b) - rb;

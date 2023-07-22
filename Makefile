@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/22 12:28:00 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/22 13:12:51 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SOURCES = stack/stack_new.c \
 		  stack/stack_pop.c \
 		  stack/stack_operation.c \
 		  stack/stack_check.c \
-		  stack/stack_utils.c \
+		  stack/stack_index.c \
 		  command/cmd.c \
 		  command/cmd_utils.c \
 		  push_swap/push_swap.c \
@@ -46,6 +46,7 @@ SOURCES_MANDA = main.c
 SOURCES_BONUS = main_bonus.c checker_bonus.c
 			   
 INCLUDES = stack.h push_swap.h data.h lib.h toklen.h
+INCLUDES_BONUS = checker_bonus.h
 
 LIBFT = libft.a
 LIB = ft 
@@ -68,12 +69,15 @@ OBJS_MANDA = $(addprefix $(OBJ_DIR)/, $(SOURCES_MANDA:.c=.o))
 OBJS_BONUS = $(addprefix $(OBJ_DIR)/, $(SOURCES_BONUS:.c=.o))
 
 INCS := $(addprefix $(INC_DIR)/, $(INCLUDES))
+INCS_BONUS := $(addprefix $(INC_DIR)/, $(INCLUDES_BONUS))
 LIBFT := $(addprefix $(LIB_DIR)/, $(LIBFT))
 
 ifdef WITH_BONUS
 	OBJS_NEW = $(OBJS_BONUS) $(OBJS) 
+	INCS_NEW = $(INCS) $(INCS_BONUS)
 else
 	OBJS_NEW = $(OBJS_MANDA) $(OBJS) 
+	INCS_NEW = $(INCS)
 endif
 
 # **************************************************************************** #
@@ -120,7 +124,7 @@ $(NAME) $(BONUS) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
 $(LIBFT): 
 	$(MAKE) -j3 -C $(LIB_DIR) all
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS) | $(OBJ_DIR) $(OBJ_DIRS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS_NEW) | $(OBJ_DIR) $(OBJ_DIRS)
 	$(CC) $(CFLAGS) $< -c -I $(INC_DIR) -o $@
 
 $(OBJ_DIR):

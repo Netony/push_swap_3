@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 11:45:41 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 11:50:30 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 13:09:32 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ int	vars_end(t_vars *vars)
 	ft_stclear(&(vars->a));
 	return (0);
 }
-

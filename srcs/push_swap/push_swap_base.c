@@ -6,23 +6,23 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:26:15 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 12:26:37 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 13:08:35 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		pa(t_vars *vars);
-int		pb(t_vars *vars);
-int		ra(t_vars *vars);
-int		rra(t_vars *vars);
-int		rb(t_vars *vars);
-int		rrb(t_vars *vars);
-int		sa(t_vars *vars);
-int		sb(t_vars *vars);
-int		ss(t_vars *vars);
-int		rr(t_vars *vars);
-int		rrr(t_vars *vars);
+int			pa(t_vars *vars);
+int			pb(t_vars *vars);
+int			ra(t_vars *vars);
+int			rra(t_vars *vars);
+int			rb(t_vars *vars);
+int			rrb(t_vars *vars);
+int			sa(t_vars *vars);
+int			sb(t_vars *vars);
+int			ss(t_vars *vars);
+int			rr(t_vars *vars);
+int			rrr(t_vars *vars);
 
 static int	push_swap_operation(t_vars *vars, char *s);
 
