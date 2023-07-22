@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:53 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 16:53:30 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 17:38:34 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 t_stack	*parse_nbr(char *nptr);
 t_stack	*parse_nbr_space(char **nptrs);
 int		ft_nptr_check(char *nptr);
-int		ft_stack_check(t_stack *stack);
+int		ft_dup_check(t_stack *stack, int n);
 int		ft_integer_check(char *nptr);
 int		ft_sptsize(char **spt);
 void	ft_sptdel(char **spt);
@@ -42,8 +42,9 @@ t_stack	*parse_argv(int argc, char **argv)
 		ft_stpush_stack(&stack, parse);
 		i++;
 	}
-	if (ft_stack_check(stack) == 0)
+	if (ft_dup_check(stack, ft_stsize(stack)) == 0)
 	{
+		ft_putendl_fd("Error", 2);
 		ft_stclear(&stack);
 		return (NULL);
 	}
