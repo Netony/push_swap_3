@@ -1,32 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 12:03:24 by dajeon            #+#    #+#             */
+/*   Updated: 2023/07/22 12:20:04 by dajeon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	push_swap_main(t_vars *vars)
 {
-	int	sort;
-	int	ret;
-
-	sort = push_swap_sort_three(vars, "a");
-	if (sort == 1)
+	if (push_swap_sort(vars, "a") == 1)
 		return (0);
-	ret = push_swap_move_all(vars, 3);
-	if (ret < 0)
+	if (push_swap_push_all(vars, "pb", 3) < 0)
 		return (-1);
-	sort = push_swap_sort(vars, "a");
-	if (sort < 0)
+	if (push_swap_three(vars, "a") < 0)
 		return (-1);
-	ret = push_swap_greedy(vars);
-	if (ret < 0)
+	if (push_swap_greedy(vars) < 0)
 		return (-1);
-	sort = push_swap_sort(vars, "a");
-	if (sort == 2)
+	if (push_swap_sort(vars, "a") < 0)
 		return (-1);
 	return (0);
-}
-
-int	push_swap_circular(t_vars *vars, int index)
-{
-	int	ret;
-
-	ret = push_swap_min_rotate(vars, "ra", "rra", index);
-	return (ret);
 }

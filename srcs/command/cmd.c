@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cmd.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 11:41:23 by dajeon            #+#    #+#             */
+/*   Updated: 2023/07/22 11:43:46 by dajeon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lib.h"
 
-int	ft_iscmd(t_list *cmd, char *s);
-int	ft_putcmd(char *s, t_list *cmd);
-int	ft_putcmd_replace(t_list **replace, int rep, char *new, int n);
-int	cmd_pa_pb(t_list **cmd);
+int		ft_iscmd(t_list *cmd, char *s);
+int		ft_putcmd(char *s);
+int		ft_putcmd_n(char *s, int n);
+t_list	*ft_lstnth(t_list *lst, int n);
+
+int		cmd_pa_pb(t_list **cmd);
 
 int	cmd_put(t_list *cmd)
 {
@@ -16,7 +30,7 @@ int	cmd_put(t_list *cmd)
 		if (ft_iscmd(cmd, "pa") || ft_iscmd(cmd, "pb"))
 			put = cmd_pa_pb(&cmd);
 		else
-			put = ft_putcmd(cmd->content, cmd);
+			put = ft_putcmd(cmd->content);
 		if (put < 0)
 			return (-1);
 		ret += put;
@@ -46,9 +60,10 @@ int	cmd_pa_pb(t_list **cmd)
 			break;
 		cur = cur->next;
 	}
+	*cmd = ft_lstnth(*cmd, pa + pb);
 	if (pa > pb)
-		ret += ft_putcmd_replace(cmd, pa + pb, "pa", pa - pb);
-	else if (pb > pa)
-		ret += ft_putcmd_replace(cmd, pa + pb, "pb", pb - pa);
+		ret += ft_putcmd_n("pa", pa - pb);
+	else
+		ret += ft_putcmd_n("pb", pb - pa);
 	return (ret);
 }

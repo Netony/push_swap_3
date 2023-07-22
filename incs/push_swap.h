@@ -4,7 +4,6 @@
 # include "lib.h"
 # include "stack.h"
 # include "data.h"
-# include <stdio.h>
 
 typedef struct s_vars
 {
@@ -14,22 +13,20 @@ typedef struct s_vars
 }	t_vars;
 
 t_stack	*parse_argv(int argc, char **argv);
-t_data	*greedy(t_vars *vars, t_stack *stack);
 
 int		cmd_put(t_list *cmd);
 
 int		push_swap_main(t_vars *vars);
 
-int		push_swap_move_all(t_vars *vars, int n);
+int		push_swap_push_all(t_vars *vars, char *pa, int n);
 int		push_swap_sort(t_vars *vars, char *a);
-int		push_swap_sort_three(t_vars *vars, char *a);
+int		push_swap_three(t_vars *vars, char *a);
 int		push_swap_greedy(t_vars *vars);
 
 int		push_swap_data(t_vars *vars, t_data *data);
-int		push_swap_circular(t_vars *vars, int index);
-int		push_swap_min_rotate(t_vars *vars, char *ra, char *rra, int index);
+int		push_swap_rotate(t_vars *vars, char *ra, char *rra, int index);
 
 int		push_swap(t_vars *vars, char *s);
-int		push_swap_n_times(t_vars *vars, char *s, int n);
+int		push_swap_n(t_vars *vars, char *s, int n);
 
 #endif

@@ -19,7 +19,7 @@ int	ft_issorted(t_stack *stack)
 	return (sort);
 }
 
-int	ft_issorted_real(t_stack *stack)
+int	ft_issorted_checker(t_stack *stack)
 {
 	int	sort;
 	int	i;
@@ -35,7 +35,7 @@ int	ft_issorted_real(t_stack *stack)
 		i++;
 		stack = stack->next;
 	}
-	if (sort == 1 && stack->data == ft_stmin(stack))
+	if (sort == 1 && ft_stmin(stack) == 0)
 		return (1);
 	return (0);
 }

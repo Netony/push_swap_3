@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/21 22:18:39 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/22 12:28:00 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SOURCES = stack/stack_new.c \
 		  parse/parse_check.c \
 		  greedy/greedy.c \
 		  greedy/greedy_renew.c \
-		  greedy/greedy_renew_utils.c \
+		  greedy/greedy_utils.c \
 		  utils/ft_toklen.c \
 		  utils/ft_strcmp.c \
 		  utils/math.c \
@@ -43,7 +43,7 @@ SOURCES = stack/stack_new.c \
 DIRS = greedy push_swap stack utils command parse
 
 SOURCES_MANDA = main.c 
-SOURCES_BONUS = main_bonus.c checker.c
+SOURCES_BONUS = main_bonus.c checker_bonus.c
 			   
 INCLUDES = stack.h push_swap.h data.h lib.h toklen.h
 
@@ -92,11 +92,9 @@ RMFLAGS = -rf
 # Commands ******************************************************************* #
 
 all : 
-	$(RM) $(RMFLAGS) $(OBJS_BONUS)
 	$(MAKE) $(NAME) 
 
 bonus : 
-	$(RM) $(RMFLAGS) $(OBJS_MANDA)
 	$(MAKE) $(BONUS) WITH_BONUS=1
 
 clean :
@@ -105,7 +103,7 @@ clean :
 
 fclean : 
 	$(RM) $(RMFLAGS) objs
-	$(RM) $(RMFLAGS) $(NAME)
+	$(RM) $(RMFLAGS) $(NAME) $(BONUS)
 	$(MAKE) -C libft fclean
 
 re : 
@@ -116,11 +114,9 @@ re :
 
 # Dependency ***************************************************************** #
 
-$(NAME) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
+$(NAME) $(BONUS) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
 	$(CC) $(CFLAGS) $(OBJS_NEW) -o $@ $(LIBFLAGS)
 
-$(BONUS) : $(OBJS_NEW) $(LIBFT) $(LIBFTPRINTF) $(LIBGNL)
-	$(CC) $(CFLAGS) $(OBJS_NEW) -o $@ $(LIBFLAGS)
 $(LIBFT): 
 	$(MAKE) -j3 -C $(LIB_DIR) all
 

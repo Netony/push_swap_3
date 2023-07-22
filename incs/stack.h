@@ -30,7 +30,7 @@ t_stack	*ft_stlast(t_stack *head);
 int		ft_stmin(t_stack *stack);
 int		ft_stidx_near(t_stack *stack, int value);
 int		ft_issorted(t_stack *stack);
-int		ft_issorted_real(t_stack *stack);
+int		ft_issorted_checker(t_stack *stack);
 
 int		ft_stmin_index(t_stack *stack);
 int		ft_stmax_index(t_stack *stack);

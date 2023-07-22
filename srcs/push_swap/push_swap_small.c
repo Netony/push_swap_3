@@ -1,34 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_small.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 12:26:16 by dajeon            #+#    #+#             */
+/*   Updated: 2023/07/22 12:26:17 by dajeon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lib.h"
 #include "push_swap.h"
 
 static char	**data_vars(void);
 
-int	push_swap_n_times(t_vars *vars, char *s, int n)
-{
-	int	ret;
-	int	i;
-
-	i = 0;
-	while (i < n)
-	{
-		ret = push_swap(vars, s);
-		if (ret < 0)
-			return (-1);
-		i++;
-	}
-	return (0);
-}
-
-int	push_swap_min_rotate(t_vars *vars, char *ra, char *rra, int index)
+int	push_swap_rotate(t_vars *vars, char *ra, char *rra, int index)
 {
 	int	size;
 	int	ret;
 
 	size = ft_stsize(vars->a);
 	if (index < size - index)
-		ret = push_swap_n_times(vars, ra, index);
+		ret = push_swap_n(vars, ra, index);
 	else
-		ret = push_swap_n_times(vars, rra, size - index);
+		ret = push_swap_n(vars, rra, size - index);
 	if (ret < 0)
 		return (-1);
 	return (0);
@@ -44,7 +40,7 @@ int	push_swap_data(t_vars *vars, t_data *data)
 	i = 0;
 	while (cmd[i])
 	{
-		ret = push_swap_n_times(vars, cmd[i], data_get(data, cmd[i]));
+		ret = push_swap_n(vars, cmd[i], data_get(data, cmd[i]));
 		if (ret < 0)
 			return (-1);
 		i++;
