@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 11:45:41 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 13:09:32 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 16:16:50 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,13 @@ int	main(int argc, char **argv)
 
 	if (vars_init(&vars, argc, argv) < 0)
 		return (-1);
-	ret = checker(&vars);
-	if (ret == 0)
-		ft_putendl_fd("OK", 1);
-	else if (ret == 1)
-		ft_putendl_fd("KO", 1);
-	else if (ret == -1)
+	ret = checker_main(&vars);
+	vars_end(&vars);
+	if (ret < 0)
 	{
 		ft_putendl_fd("Error", 2);
-		vars_end(&vars);
 		return (-1);
 	}
-	vars_end(&vars);
 	return (0);
 }
 
@@ -50,5 +45,6 @@ int	vars_end(t_vars *vars)
 {
 	ft_lstclear(&(vars->cmd), free);
 	ft_stclear(&(vars->a));
+	ft_stclear(&(vars->b));
 	return (0);
 }

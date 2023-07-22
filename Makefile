@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/22 13:12:51 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/22 16:40:38 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SOURCES = stack/stack_new.c \
 		  push_swap/push_swap_small.c \
 		  parse/parse.c \
 		  parse/parse_check.c \
+		  parse/parse_check_integer.c \
 		  greedy/greedy.c \
 		  greedy/greedy_renew.c \
 		  greedy/greedy_utils.c \
@@ -40,10 +41,13 @@ SOURCES = stack/stack_new.c \
 		  utils/split.c \
 		  utils/etc.c
 
-DIRS = greedy push_swap stack utils command parse
+DIRS = greedy push_swap stack utils command parse bonus
 
 SOURCES_MANDA = main.c 
-SOURCES_BONUS = main_bonus.c checker_bonus.c
+SOURCES_BONUS = main_bonus.c \
+				bonus/checker_bonus.c \
+				bonus/checker_base_bonus.c \
+				bonus/checker_utils_bonus.c
 			   
 INCLUDES = stack.h push_swap.h data.h lib.h toklen.h
 INCLUDES_BONUS = checker_bonus.h

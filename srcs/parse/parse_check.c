@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:38:05 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 12:38:06 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/22 16:42:32 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,7 @@
 int		ft_sptsize(char **spt);
 void	ft_sptdel(char **spt);
 int		*stack_to_ints(t_stack *stack);
-
 int		ints_check_dup(int *ints, int n);
-
-int	ft_integer_check(int atoi, char *nptr)
-{
-	char	*ltoa;
-	int		ret;
-
-	if (ft_isspace(*nptr))
-		nptr += ft_duplen(nptr, " ");
-	if (*nptr == '+')
-		nptr++;
-	ltoa = ft_ltoa(atoi, "0123456789", 1);
-	if (ltoa == NULL)
-		return (0);
-	if (ft_strcmp(ltoa, nptr))
-		ret = 0;
-	else
-		ret = 1;
-	free(ltoa);
-	return (ret);
-}
 
 int	ft_nptr_check(char *nptr)
 {

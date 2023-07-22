@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_base_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/22 11:41:41 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 12:09:22 by dajeon           ###   ########.fr       */
+/*   Created: 2023/07/22 16:14:21 by dajeon            #+#    #+#             */
+/*   Updated: 2023/07/22 16:14:23 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-#include "stack.h"
-#include "lib.h"
 
 int			pa(t_vars *vars);
 int			pb(t_vars *vars);
@@ -27,27 +25,15 @@ int			rr(t_vars *vars);
 int			rrr(t_vars *vars);
 static int	checker_operation(t_vars *vars, char *s);
 
-int	checker(t_vars *vars)
+int	checker(t_vars *vars, t_list *cmd)
 {
-	char	*line;
-	int		ret;
-
-	while (1)
+	while (cmd)
 	{
-		line = get_next_line(0);
-		if (line)
-		{
-			ret = checker_operation(vars, line);
-			free(line);
-			if (ret == -2)
-				return (-1);
-		}
-		else
-			break ;
+		if (checker_operation(vars, cmd->content) == -2)
+			return (-1);
+		cmd = cmd->next;
 	}
-	if (ft_issorted_checker(vars->a) == 1 && vars->b == NULL)
-		return (0);
-	return (1);
+	return (0);
 }
 
 static int	checker_operation(t_vars *vars, char *s)
