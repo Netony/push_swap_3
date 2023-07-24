@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:38:05 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 17:38:33 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 19:45:49 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_dup_check(t_stack *stack, int n)
 
 	cmp = stack;
 	if (stack == NULL)
-		return (0);
+		return (1);
 	i = 0;
 	while (i + 1 < n)
 	{

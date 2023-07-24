@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/07/22 16:40:38 by dajeon           ###   ########.fr        #
+#    Updated: 2023/07/24 20:34:19 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SOURCES = stack/stack_new.c \
 		  stack/stack_operation.c \
 		  stack/stack_check.c \
 		  stack/stack_index.c \
+		  stack/stack_indexize.c \
 		  command/cmd.c \
 		  command/cmd_utils.c \
 		  push_swap/push_swap.c \
@@ -39,9 +40,10 @@ SOURCES = stack/stack_new.c \
 		  utils/ft_strcmp.c \
 		  utils/math.c \
 		  utils/split.c \
-		  utils/etc.c
+		  utils/array.c \
+		  utils/array_sort.c
 
-DIRS = greedy push_swap stack utils command parse bonus
+DIRS = greedy push_swap stack utils command parse bonus sort
 
 SOURCES_MANDA = main.c 
 SOURCES_BONUS = main_bonus.c \

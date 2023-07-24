@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:24:38 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 12:56:53 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 20:28:26 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,41 @@
 
 t_data	*greedy(t_vars *vars, t_stack *stack);
 
-int	push_swap_push_all(t_vars *vars, char *pa, int left)
+int	push_swap_push_all_pivot(t_vars *vars, int left)
+{
+	int		mid;
+	int		i;
+	int		size;
+
+	size = ft_stsize(vars->a);
+	mid = size / 2;
+	i = 0;
+	while (i++ < size - left)
+	{
+		if (vars->a->data < mid)
+		{
+			if (push_swap(vars, "pb") < 0)
+				return (-1);
+		}
+		else
+		{
+			if (push_swap(vars, "pb") < 0)
+				return (-1);
+			if (push_swap(vars, "rb") < 0)
+				return (-1);
+		}
+	}
+	return (0);
+}
+
+int	push_swap_push_all(t_vars *vars, int left)
 {
 	int	n;
 
 	n = ft_stsize(vars->a) - left;
 	if (n <= 0)
 		return (0);
-	if (push_swap_n(vars, pa, n) < 0)
+	if (push_swap_n(vars, "pb", n) < 0)
 		return (-1);
 	return (0);
 }

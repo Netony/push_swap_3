@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:53 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 17:38:34 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 20:06:12 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ t_stack	*parse_argv(int argc, char **argv)
 	stack = NULL;
 	while (i < argc)
 	{
-		parse = parse_nbr(argv[argc - i]);
+		parse = parse_nbr(argv[argc - i++]);
 		if (parse == NULL)
 		{
 			ft_stclear(&stack);
 			return (NULL);
 		}
 		ft_stpush_stack(&stack, parse);
-		i++;
 	}
 	if (ft_dup_check(stack, ft_stsize(stack)) == 0)
 	{

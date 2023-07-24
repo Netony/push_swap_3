@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 11:45:41 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 16:16:50 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 19:53:07 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	vars_init(t_vars *vars, int argc, char **argv)
 	if (vars->a == NULL)
 		return (-1);
 	vars->b = NULL;
+	vars->cmd = NULL;
 	return (0);
 }
 

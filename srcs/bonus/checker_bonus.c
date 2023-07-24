@@ -6,13 +6,15 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 16:09:47 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 16:15:12 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 19:53:03 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 #include "stack.h"
 #include "lib.h"
+
+static int	checker_check_vars(t_vars *vars);
 
 int	checker_main(t_vars *vars)
 {
@@ -33,7 +35,7 @@ int	checker_main(t_vars *vars)
 	return (ret);
 }
 
-int	checker_check_vars(t_vars *vars)
+static int	checker_check_vars(t_vars *vars)
 {
 	if (ft_issorted_checker(vars->a) == 1 && vars->b == NULL)
 		return (0);

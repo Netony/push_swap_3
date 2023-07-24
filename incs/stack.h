@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 13:13:34 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 16:53:28 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 19:25:28 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ int		ft_stidx_larger(t_stack *stack, int value);
 int		ft_stidx_mid(t_stack *stack);
 int		ft_stidx_min(t_stack *stack);
 int		ft_stidx_max(t_stack *stack);
+
+int		stack_indexize(t_stack *stack);
 
 #endif

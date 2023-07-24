@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 13:13:09 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/22 13:13:33 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 20:38:16 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int		cmd_put(t_list *cmd);
 
 int		push_swap_main(t_vars *vars);
 
-int		push_swap_push_all(t_vars *vars, char *pa, int n);
+int		push_swap_push_all(t_vars *vars, int left);
+int		push_swap_push_all_pivot(t_vars *vars, int left);
 int		push_swap_sort(t_vars *vars, char *a);
 int		push_swap_three(t_vars *vars, char *a);
 int		push_swap_greedy(t_vars *vars);
