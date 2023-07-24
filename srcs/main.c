@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 11:45:39 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/24 20:28:20 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/24 20:43:58 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@ int	main(int argc, char **argv)
 {
 	t_vars	vars;
 
+	if (argc == 1)
+		return (0);
 	if (vars_init(&vars, argc, argv) < 0)
-		return (-1);
+		return (1);
 	if (stack_indexize(vars.a) < 0)
 	{
 		vars_end(&vars);
-		return (-1);
+		return (1);
 	}
 	if (push_swap_main(&vars) < 0)
 	{
 		vars_end(&vars);
-		return (-1);
+		return (1);
 	}
 	if (cmd_put(vars.cmd) < 0)
 	{
 		vars_end(&vars);
-		return (-1);
+		return (1);
 	}
 	vars_end(&vars);
 	return (0);
