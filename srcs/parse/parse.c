@@ -91,11 +91,12 @@ t_stack	*parse_nbr_space(char **nptrs)
 	{
 		new = parse_nbr(nptrs[(n - 1) - i++]);
 		if (new == NULL)
+		{
+			ft_stclear(&stack);
 			return (NULL);
+		}
 		ft_stpush_stack(&stack, new);
 	}
-	if (n == 0)
-		ft_putendl_fd("Error", 2);
 	ft_sptdel(nptrs);
 	return (stack);
 }
