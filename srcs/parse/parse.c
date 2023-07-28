@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:53 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/24 20:06:12 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/28 20:01:37 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_stack	*parse_nbr_space(char **nptrs)
 		if (new == NULL)
 		{
 			ft_stclear(&stack);
-			return (NULL);
+			break ;
 		}
 		ft_stpush_stack(&stack, new);
 	}
